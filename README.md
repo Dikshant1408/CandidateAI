@@ -1,43 +1,55 @@
+
 # CandidateAI - Neural Talent Evaluation Dashboard
 
-CandidateAI is a sophisticated HR recruitment tool that leverages **Gemini 3 Flash** to perform deep-vector analysis of job candidates. It evaluates talent across three critical modern dimensions: Crisis Management, Sustainability Knowledge, and Team Motivation.
+A high-performance recruitment intelligence platform leveraging **Google Gemini AI** to quantify intangible professional soft skills.
 
-## 🚀 Features
+## 🚀 Key Features
 
-- **Neural Evaluation**: Real-time analysis of candidate resumes and achievements using Google GenAI.
-- **Talent Pool Management**: Full CRUD-capable view of 40+ realistic candidate profiles.
-- **Side-by-Side Comparison**: Multi-candidate "Delta Analysis" view with horizontal matrix scrolling and compact mode.
-- **Global Leaderboard**: Ranking system based on aggregate AI scores.
-- **Talent DNA Mapping**: Visual radar charts for competency visualization.
-- **Market Analytics**: Trend analysis and pool quality metrics.
-- **Settings & Theme**: Functional dark mode, model selection, and auto-evaluation settings.
+- **Neural Profiling**: Uses Gemini 3 Flash to evaluate candidates on Crisis Mitigation, Sustainability knowledge, and Team Leadership.
+- **Top 10 Leaderboard**: Dynamic ranking of candidates based on weighted aggregate AI scores.
+- **Skill Heatmap**: Visual intensity matrix of candidate competencies.
+- **Comparison Matrix**: Side-by-side "Delta Analysis" for final-round selection.
+- **Realistic Data**: Deterministic generation of 40 diverse professional profiles.
+- **Mantine UI**: Built with a production-grade component library for maximum accessibility and responsiveness.
 
-## 🛠 Tech Stack
+## 🛠 Setup Instructions
 
-- **Frontend**: React 19, TypeScript, Tailwind CSS.
-- **Icons**: Lucide React.
-- **Charts**: Recharts (Radar, Area, Bar).
-- **AI**: @google/genai (Gemini 3 Flash).
-- **Data**: Custom deterministic mock generator (40 profiles).
+### Prerequisites
+- Node.js (Latest LTS)
+- Browser with ES Module support
 
-## 📊 Database Architecture
+### Quick Start
+1. **Clone the project**:
+   ```bash
+   git clone [repository-url]
+   cd candidate-ai
+   ```
+2. **Environment Configuration**:
+   Create a `.env` file or set the environment variable:
+   ```env
+   API_KEY=your_google_gemini_api_key
+   ```
+3. **Launch**:
+   This app uses Vite for development.
+   ```bash
+   npm install
+   npm run dev
+   ```
 
-The system is designed to be MySQL-compatible. See `db_schema.sql` for the full definition.
+## 📊 Database Management
 
-### Tables:
-- `candidates`: Primary profile data (experience, skills, achievements).
-- `evaluations`: AI-generated scores and summaries linked to candidates.
-- `rankings`: Cached ranking table for performance-critical leaderboard views.
+The provided `db_schema.sql` is compatible with MySQL 8.0+. To migrate:
 
-## 🤖 AI Logic (Prompts)
+1. Connect to your MySQL instance.
+2. Run the commands in `db_schema.sql`.
+3. The schema includes 40 sample candidate records and initial evaluation benchmarks.
 
-The evaluation engine uses a structured JSON output prompt evaluating:
-1. **Crisis Management**: Ability to handle outages and high-pressure scenarios.
-2. **Sustainability**: Knowledge of CSR, ESG, and green tech.
-3. **Team Motivation**: Leadership skills and cultural impact.
+## 🤖 AI Logic
 
-## 📦 Setup
+The evaluation engine uses specific "Neural Prompts" (see `AI_PROMPTS.md`) to analyze professional history. It calculates:
+- **Crisis Response**: Based on incident handling and outage management.
+- **Sustainability**: Based on ESG, CSR, and green tech initiatives.
+- **Team Motivation**: Based on leadership, mentoring, and cultural impact.
 
-1. The application automatically initializes with a sample set of 40 candidates.
-2. Ensure your `process.env.API_KEY` is configured to enable live Gemini evaluations.
-3. Use the **Overview** to see top performers or **Talent Pool** to trigger new evaluations.
+---
+*Built with ❤️ by a World-Class Senior Frontend Engineer.*

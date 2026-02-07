@@ -2,9 +2,10 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { Candidate, Evaluation } from "../types";
 
-export const evaluateCandidateWithAI = async (candidate: Candidate): Promise<Evaluation> => {
+export const evaluateCandidateWithAI = async (candidate: Candidate, modelName: string = "gemini-3-flash-preview"): Promise<Evaluation> => {
   try {
-    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
+    // Initializing with the recommended pattern and direct process.env.API_KEY usage
+    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
     
     const prompt = `Perform a deep analysis of this job candidate across three dimensions: Crisis Management, Sustainability Knowledge, and Team Motivation.
     
@@ -18,7 +19,7 @@ export const evaluateCandidateWithAI = async (candidate: Candidate): Promise<Eva
     Provide a realistic numeric score (0-100) for each dimension based on their profile and specific achievements, and a concise overall summary of their potential.`;
 
     const response = await ai.models.generateContent({
-      model: "gemini-3-flash-preview",
+      model: modelName,
       contents: prompt,
       config: {
         responseMimeType: "application/json",
@@ -35,7 +36,8 @@ export const evaluateCandidateWithAI = async (candidate: Candidate): Promise<Eva
       }
     });
 
-    const result = JSON.parse(response.text);
+    // Extract text property directly as per guidelines
+    const result = JSON.parse(response.text || '{}');
     
     return {
       candidateId: candidate.id,
