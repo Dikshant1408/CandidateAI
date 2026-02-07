@@ -1,0 +1,5 @@
+{
+  "name": "CandidateAI - Talent Evaluation Dashboard",
+  "description": "A sophisticated HR dashboard that leverages Gemini AI to evaluate job candidates on crisis management, sustainability, and team motivation. Features a real-time leaderboard, skill heatmaps, and comprehensive candidate profiles.",
+  "requestFramePermissions": []
+}
